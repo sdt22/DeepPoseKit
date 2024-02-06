@@ -65,7 +65,7 @@ class DLCDataGenerator(BaseGenerator):
         images = []
         for idx in indexes:
             row = self.annotations.iloc[idx]
-            image_name = row.name
+            image_name = row.name[2]
             filepath = self.project_path + image_name
             if os.path.exists(filepath):
                 images.append(cv2.imread(filepath))
