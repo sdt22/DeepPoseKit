@@ -68,7 +68,7 @@ class DLCDataGenerator(BaseGenerator):
             image_name = row.name
             filepath = os.path.join(self.project_path, *image_name)
             if os.path.exists(filepath):
-                images.append(cv2.imread(filepath))
+                images.append(cv2.imread(filepath, cv2.IMREAD_GRAYSCALE))
             else:
                 raise IndexError("image `{}` does not exist".format(image_name))
         return np.stack(images)
